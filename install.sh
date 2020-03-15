@@ -15,7 +15,8 @@ sudo mv /etc/network/interfaces /etc/network/interfaces.bak
 sudo cp ./interfaces /etc/network/
 sudo cp ./dhcpcd.conf /etc/
 sudo cp ./dnsmasq.conf /etc/
-randi=$(uuidgen)
+randi=$(uuidgen | md5sum)
+randi=${randi::-4}
 orig=$(grep wpa_passphrase ./hostapd.conf | sed 's/.*=//')
 sed -i "s/$orig/$randi/g" ./hostapd.conf
 sudo cp ./hostapd.conf /etc/hostapd/
