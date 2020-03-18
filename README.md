@@ -3,6 +3,11 @@ This is the main repository for the SUBZero, a Raspberry Pi Zero Wireless USB NA
 
 [![3D Printed Case](/Pictures/SUBZero5.jpg)](https://www.thingiverse.com/thing:3389059)
 
+## TODO
+* Install oled startup code to have set in cronjob
+* Auto-expand file system after first boot
+* Safe shutdown switch code
+
 ## What You Need
 * Raspberry Pi Zero W
 * Micro SD card (minimum 16GB to use prebuilt image)
