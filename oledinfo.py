@@ -74,8 +74,8 @@ font = ImageFont.load_default()
 # Some other nice fonts to try: http://www.dafont.com/bitmap.php
 #font = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf', 9)
 IPaddy = "hostname -I | cut -d\' \' -f1"
-IPaddy = subprocess.check_output(IPaddy, shell=True).decode("utf-8")
 passkey = "grep wpa_passphrase /etc/hostapd/hostapd.conf | sed 's/.*=//'"
+IPaddy = subprocess.check_output(IPaddy, shell=True).decode("utf-8")
 passkey = subprocess.check_output(passkey, shell=True).decode("utf-8")
 # Draw a black filled box to clear the image.
 draw.rectangle((0, 0, width, height), outline=0, fill=0)
@@ -83,8 +83,8 @@ draw.rectangle((0, 0, width, height), outline=0, fill=0)
 # Shell scripts for system monitoring from here:
 # https://unix.stackexchange.com/questions/119126/command-to-display-memory-usage-disk-usage-and-cpu-load
 
-cmd = "cat /sys/class/net/wlan0/address"
-CPU = subprocess.check_output(cmd, shell=True).decode("utf-8")
+cmd = "grep -w \"ssid\" /etc/hostapd/hostapd.conf | sed 's/.*=//'"
+SSID = subprocess.check_output(cmd, shell=True).decode("utf-8")
 cmd = "df -h | awk '$NF==\"/\"{printf \"Disk: %d/%d GB  %s\", $3,$2,$5}'"
 MemUsage = subprocess.check_output(cmd, shell=True).decode("utf-8")
 cmd = passkey
@@ -92,9 +92,11 @@ cmd = passkey
 # Write four lines of text.
 
 draw.text((x, top+0), "IP:"+IPaddy, font=font, fill=255)
-draw.text((x, top+25), passkey, font=font, fill=255)
-draw.text((x, top+8), CPU, font=font, fill=255)
-draw.text((x, top+16), MemUsage, font=font, fill=255)
+draw.text((x, top+8), SSID, font=font, fill=255)
+draw.text((x, top+16), passkey, font=font, fill=255)
+draw.text((x, top+25), MemUsage, font=font, fill=255)
+
+
 
 
 # Display image.
