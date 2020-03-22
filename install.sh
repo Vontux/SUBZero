@@ -11,6 +11,7 @@ chmod +x ./subzero.sh && sudo cp ./subzero.sh /usr/local/bin
 (sudo crontab -l 2>/dev/null; echo "@reboot /usr/local/bin/subzero.sh") | crontab -
 sudo echo '*/5 * * * * /home/pi/SUBZero/runscreen.sh' >> /var/spool/cron/crontabs/pi
 sudo chmod +x ./runscreen.sh
+sudo cp ./poweroff.service /etc/systemd/system/poweroff.service
 sudo mv /etc/dhcpcd.conf /etc/dhcpcd.bak
 sudo mv /etc/dnsmasq.conf /etc/dnsmasq.bak
 sudo mv /etc/hostapd/hostapd.conf /etc/hostapd/hostapd.bak
