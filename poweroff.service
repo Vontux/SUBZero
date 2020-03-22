@@ -1,0 +1,15 @@
+[Unit]
+Description=allows poweroff to be started via gpio button
+After=
+
+[Service]
+ExecStart=/home/pi/SUBZero/poweroff.py
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=powerbutton
+User=pi
+Group=pi
+
+[Install]
+WantedBy=multi-user.target
