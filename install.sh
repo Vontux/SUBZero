@@ -31,3 +31,4 @@ sudo ldconfig
 sudo systemctl enable hostapd
 sudo systemctl start hostapd
 sudo systemctl enable dnsmasq
+sudo reboot
