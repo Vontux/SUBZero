@@ -9,7 +9,7 @@ sudo mkdir -p /var/www/SUBZero/ && sudo cp ./httpsServer.py /var/www/SUBZero && 
  
 chmod +x ./subzero.sh && sudo cp ./subzero.sh /usr/local/bin
 (sudo crontab -l 2>/dev/null; echo "@reboot /usr/local/bin/subzero.sh") | crontab -
-sudo echo '*/5 * * * * /home/pi/SUBZero/runscreen.sh' >> /var/spool/cron/crontabs/pi
+(sudo crontab -l 2>/dev/null; echo "*/5 * * * * /home/pi/SUBZero/runscreen.sh") | crontab -
 sudo chmod +x ./runscreen.sh
 sudo cp ./poweroff.service /etc/systemd/system/poweroff.service
 sudo mv /etc/dhcpcd.conf /etc/dhcpcd.bak
