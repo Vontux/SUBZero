@@ -4,7 +4,7 @@ This is the main repository for the SUBZero, a Raspberry Pi Zero Wireless USB NA
 [![3D Printed Case](/Pictures/SUBZero5.jpg)](https://www.thingiverse.com/thing:3389059)
 
 ## TODO
-* Install oled startup code to have set in cronjob
+* <s>Install oled startup code to have set in cronjob</s>
 * <s>Auto-expand file system after first boot</s> handled by raspbian automatically now
 * <s>Safe shutdown switch code</s>
 * code to create private / public key pair and save them to subzero directory.
