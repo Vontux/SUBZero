@@ -12,6 +12,7 @@ chmod +x ./subzero.sh && sudo cp ./subzero.sh /usr/local/bin
 (sudo crontab -l 2>/dev/null; echo "*/5 * * * * /home/pi/SUBZero/runscreen.sh") | crontab -
 sudo chmod +x ./runscreen.sh
 sudo cp ./poweroff.service /etc/systemd/system/poweroff.service
+sudo chmod +x ./poweroff.py
 sudo mv /etc/dhcpcd.conf /etc/dhcpcd.bak
 sudo mv /etc/dnsmasq.conf /etc/dnsmasq.bak
 sudo mv /etc/hostapd/hostapd.conf /etc/hostapd/hostapd.bak
@@ -31,4 +32,6 @@ sudo ldconfig
 sudo systemctl enable hostapd
 sudo systemctl start hostapd
 sudo systemctl enable dnsmasq
+sudo systemctl enable poweroff
+sudo systemctl start poweroff
 sudo reboot
